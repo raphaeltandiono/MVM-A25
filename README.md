@@ -1,2 +1,1008 @@
-# MVM-A25
-Motion Ventures M&amp;A Research
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MV2025 M&A Research</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-main: 'Inter', sans-serif;
+            
+            /* motion.vc inspired palette - updated accent */
+            --color-dark-bg: #0D1A1C; 
+            --color-light-bg: #F5F3EF; 
+            
+            --text-on-dark: #E0E0E0; 
+            --text-on-dark-strong: #FFFFFF;
+            --text-on-light: #2B2B2B; 
+            --text-on-light-muted: #5F5F5F;
+
+            --accent-primary: #20A370; /* Darkened Green/Teal */
+            --accent-primary-hover: #1A8C5D; /* Darker hover for the new accent */
+
+            --border-dark-theme: #334143;
+            --border-light-theme: #DCDCDC;
+
+            --card-bg-dark: #142528;
+            --card-border-dark: #2A3F42;
+            --card-bg-light: #FFFFFF;
+            --card-border-light: #EAEAEA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--text-on-light);
+            background-color: var(--color-light-bg);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background-color: var(--color-dark-bg);
+            color: var(--text-on-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2.5rem; 
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            color: var(--accent-primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.8rem; 
+        }
+
+        nav ul li a {
+            color: var(--text-on-dark-strong);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1.5rem 3rem 1.5rem; 
+            max-width: 900px;
+            margin: 0 auto; 
+            background-color: var(--color-dark-bg); 
+        }
+
+        .hero h1 {
+            font-size: 3rem; 
+            margin-bottom: 0; 
+            font-weight: 800; 
+            color: var(--text-on-dark-strong);
+            letter-spacing: -1.5px; 
+            line-height: 1.2;
+        }
+        .hero h1 .highlight { 
+            color: var(--accent-primary);
+        }
+
+        main { }
+
+        section {
+            padding: 4rem 2rem; 
+        }
+        
+        .section-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem; 
+            margin-bottom: 2rem; 
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -1px;
+            position: relative;
+            padding-bottom: 0.8rem; 
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px; 
+            height: 3px; 
+        }
+
+        .light-section {
+            background-color: var(--color-light-bg);
+            color: var(--text-on-light);
+        }
+        .light-section h2 {
+            color: var(--text-on-light);
+        }
+        .light-section h2::after {
+            background-color: var(--accent-primary); 
+        }
+        .light-section p, .light-section li {
+            color: var(--text-on-light-muted);
+        }
+         .light-section strong {
+            color: var(--text-on-light);
+        }
+
+        .dark-section {
+            background-color: var(--color-dark-bg);
+            color: var(--text-on-dark);
+        }
+        .dark-section h2 {
+            color: var(--text-on-dark-strong);
+        }
+        .dark-section h2::after {
+            background-color: var(--accent-primary);
+        }
+        .dark-section p, .dark-section li {
+            color: #b0bec5; 
+        }
+        .dark-section strong {
+            color: var(--accent-primary);
+        }
+        .dark-section a {
+            color: var(--accent-primary);
+        }
+        .dark-section a:hover {
+            color: var(--accent-primary-hover);
+        }
+
+        .subsection {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            padding: 2rem; 
+            border-radius: 12px; 
+        }
+
+        .light-section .subsection {
+            background-color: var(--card-bg-light);
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+        }
+        .dark-section .subsection {
+             background-color: var(--card-bg-dark);
+             border: 1px solid var(--card-border-dark);
+             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        section ul {
+            list-style-position: outside;
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+
+        section ul li {
+            margin-bottom: 0.75rem; 
+        }
+        section ul li::marker {
+            color: var(--accent-primary); 
+            font-size: 1.1em;
+        }
+        .dark-section section ul li::marker {
+            color: var(--accent-primary);
+        }
+
+        section ul ul {
+            margin-top: 0.6rem;
+            margin-left: 25px;
+        }
+        section ul ul li::marker {
+            content: '▹ '; 
+            color: var(--text-on-light-muted);
+        }
+        .dark-section section ul ul li::marker {
+            color: #b0bec5;
+        }
+
+        h3 {
+            font-size: 1.8rem; 
+            margin-bottom: 1.25rem; 
+            font-weight: 700; 
+            color: var(--text-on-light);
+        }
+        .dark-section h3 {
+            color: var(--text-on-dark-strong);
+        }
+
+        h4 {
+            font-size: 1.5rem; 
+            margin-top: 1.8rem;
+            margin-bottom: 1.1rem; 
+            color: var(--text-on-light);
+            font-weight: 600;
+        }
+        .dark-section h4 {
+            color: var(--text-on-dark);
+        }
+        
+        h5 {
+            font-size: 1.25rem; 
+            margin-top: 1.6rem;
+            margin-bottom: 0.9rem; 
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        .dark-section h5 {
+            color: var(--accent-primary);
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .company-card {
+            border-radius: 12px; 
+            padding: 1.8rem; 
+            margin-bottom: 1.8rem; 
+        }
+        .light-section .company-card {
+            background-color: var(--card-bg-light);
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .dark-section .company-card {
+            background-color: var(--card-bg-dark);
+            border: 1px solid var(--card-border-dark);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .company-card h4 {
+            margin-top: 0;
+        }
+
+        /* Mind Map Diagram Styling */
+        .mindmap-diagram-container { /* Renamed for clarity */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            padding: 20px;
+            font-family: var(--font-main);
+            margin-top: 2rem;
+            border-radius: 12px;
+        }
+        .light-section .mindmap-diagram-container {
+            background-color: var(--card-bg-light);
+            border: 1px solid var(--border-color-light);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .dark-section .mindmap-diagram-container {
+            background-color: var(--card-bg-dark);
+            border: 1px solid var(--card-border-dark);
+            color: var(--text-on-dark);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .mindmap-node {
+            background-color: var(--card-bg-light);
+            color: var(--text-on-light);
+            border: 1px solid var(--border-color-light);
+            padding: 8px 12px; /* Slightly smaller padding for nodes */
+            border-radius: 6px; /* Sharper radius for nodes */
+            margin-bottom: 8px; /* Tighter spacing */
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            min-width: 180px; 
+            font-size: 0.95rem; /* Slightly smaller node text */
+        }
+        .dark-section .mindmap-node {
+            background-color: var(--card-bg-dark);
+            color: var(--text-on-dark);
+            border: 1px solid var(--card-border-dark);
+        }
+
+        .mindmap-node.root-node {
+            background-color: var(--accent-primary);
+            color: var(--color-dark-bg); 
+            font-weight: 700;
+            font-size: 1.2em; /* Adjusted root node size */
+            border: none;
+            text-align: center;
+            margin-left: 0; 
+            padding: 12px 18px; /* Larger padding for root */
+            width: auto; /* Allow it to size to content or be styled wider if needed */
+            display: inline-block; /* To center it if parent is text-align:center */
+            margin-bottom: 20px; /* Space below root */
+        }
+         .dark-section .mindmap-node.root-node {
+            color: var(--color-dark-bg); 
+         }
+
+        .mindmap-children {
+            margin-left: 30px; /* Indentation for children */
+            padding-left: 25px; /* Space for connecting line */
+            border-left: 2px solid var(--accent-primary);
+            position: relative;
+        }
+        
+        .mindmap-node:not(.root-node)::before { 
+            content: '';
+            position: absolute;
+            left: -26px; /* (padding-left of .mindmap-children) + (border-width / 2) */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px; 
+            height: 2px;
+            background-color: var(--accent-primary);
+        }
+        /* Remove connector for direct children of root if root is centered and children flow below */
+        .mindmap-diagram-container > .mindmap-children > .mindmap-node::before {
+            display: none; 
+        }
+        .mindmap-diagram-container > .mindmap-children {
+            border-left: none; /* No vertical line for first level children if root is centered */
+            padding-left: 0;
+            margin-left: 0;
+            display: flex; /* Allow children to flow if needed, or stack */
+            flex-direction: column;
+            align-items: center; /* Center children under root */
+        }
+         /* Re-apply for deeper levels */
+        .mindmap-children .mindmap-children {
+            margin-left: 30px;
+            padding-left: 25px;
+            border-left: 2px solid var(--accent-primary);
+        }
+        .mindmap-children .mindmap-children .mindmap-node::before {
+             display: block; /* Ensure it shows for grandchildren */
+             left: -26px;
+             width: 25px;
+        }
+
+
+        .mindmap-node strong { 
+            font-weight: 600;
+            display: block;
+            margin-bottom: 3px; /* Tighter spacing */
+            font-size: 1em;
+        }
+        .light-section .mindmap-node strong {
+            color: var(--text-on-light);
+        }
+        .dark-section .mindmap-node strong {
+            color: var(--text-on-dark-strong);
+        }
+        .mindmap-node ul { /* For lists inside a node */
+            list-style-type: disc;
+            padding-left: 15px;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .mindmap-node ul li {
+            margin-bottom: 3px;
+            padding-left: 0;
+        }
+        .mindmap-node ul li::marker {
+            font-size: 1em;
+        }
+         .mindmap-node ul li::before { /* Remove the large diagram bullet from list items inside a node */
+            display: none;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 2rem; 
+            background-color: var(--color-dark-bg);
+            color: #90a4ae; 
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around; 
+            width: 30px;
+            height: 24px; 
+            cursor: pointer;
+            z-index: 1001; 
+        }
+        .nav-toggle span {
+            height: 3px;
+            width: 100%;
+            background: var(--text-on-dark-strong);
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+        }
+        
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        @media (max-width: 992px) { 
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center; 
+                width: 100%;
+                background-color: var(--color-dark-bg); 
+                position: absolute;
+                top: 60px; 
+                left: 0;
+                padding: 1rem 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.3); 
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 1rem 0; 
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            section h2 {
+                font-size: 2.2rem;
+            }
+             h3 {
+                font-size: 1.7rem;
+            }
+            h4 {
+                font-size: 1.4rem;
+            }
+        }
+         @media (max-width: 576px) {
+            nav .logo {
+                font-size: 1.4rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 1.25rem; 
+            }
+             section h2 {
+                font-size: 1.9rem;
+            }
+             h3 {
+                font-size: 1.5rem;
+            }
+            h4 {
+                font-size: 1.25rem;
+            }
+            .subsection, .company-card, .mindmap-diagram-container {
+                padding: 1.5rem;
+            }
+            .mindmap-children .mindmap-children { /* Adjust for deeper mobile nesting */
+                 margin-left: 20px;
+                 padding-left: 15px;
+            }
+            .mindmap-children .mindmap-children .mindmap-node::before {
+                 left: -16px;
+                 width: 15px;
+            }
+         }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MV2025 M&A Research</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navLinks">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#oems">OEMs</a></li>
+                <li><a href="#class-societies">Classification</a></li>
+                <li><a href="#service-providers">Service Providers</a></li>
+                <li><a href="#decarbonization">Decarbonization</a></li>
+                <li><a href="#efficiency">Efficiency & SCM</a></li>
+                <li><a href="#mna">M&A Strategy</a></li>
+                <li><a href="#trends">Outlook</a></li>
+                <li><a href="#mindmap">Mind Map</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>MV2025 M&A Research</h1>
+            </div>
+    </header>
+
+    <main>
+        <section id="overview" class="light-section">
+            <div class="section-content">
+                <h2>Report Overview</h2>
+                <p>This report synthesizes an extensive analysis of the global maritime industry, focusing on key corporate players, strategic imperatives such as decarbonization and digitalization, and overarching market trends. It draws upon detailed discussions covering Original Equipment Manufacturers (OEMs), Classification Societies, and maritime Service Providers, their innovations, challenges, and strategic positioning in a rapidly evolving landscape as of May 2025. The maritime sector is at a critical juncture, driven by the urgent need for environmental sustainability and the transformative potential of digital technologies, demanding strategic foresight and collaborative action from all stakeholders.</p>
+            </div>
+        </section>
+
+        <section id="oems" class="dark-section">
+            <div class="section-content">
+                <h2>Original Equipment Manufacturers (OEMs)</h2>
+                <p>OEMs are the bedrock of maritime technology, supplying the critical machinery and systems that power, propel, and equip global fleets. Their innovation is central to the industry's evolution, particularly in the current era of decarbonization and digitalization.</p>
+
+                <div class="subsection">
+                    <h3>Major Players & General Focus Areas</h3>
+                    <p>Key global OEMs and their primary areas of specialization include:</p>
+                    <ul>
+                        <li><strong>Wärtsilä Corporation (Finland):</strong> Marine engines (medium-speed, dual-fuel), power generators, propulsion systems (propellers, thrusters), automation & control systems, waste treatment systems, digital solutions.</li>
+                        <li><strong>MAN Energy Solutions (Germany):</strong> Marine engines (large two-stroke, medium-speed four-stroke, dual-fuel), power generators, propulsion systems, turbochargers, automation.</li>
+                        <li><strong>Caterpillar Marine (USA):</strong> Marine engines (Cat® & MaK™ brands), power generators, propulsion systems, control systems.</li>
+                        <li><strong>Cummins Inc. (USA):</strong> Marine engines (high-speed diesel), power generators (Onan), filtration systems.</li>
+                        <li><strong>Kongsberg Maritime (Norway):</strong> Automation & control systems (DP, K-Chief), navigation equipment, propulsion systems (thrusters, waterjets), deck machinery, subsea technology, digital solutions (Vessel Insight).</li>
+                        <li><strong>ABB Marine & Ports (Switzerland/Sweden):</strong> Electric propulsion (Azipod®), power generation & distribution (Onboard DC Grid™), automation systems (ABB Ability™), turbochargers, digital services.</li>
+                        <li><strong>Siemens Energy (Germany):</strong> Power generators (turbines), electric propulsion (SISHIP SiPOD), automation & control systems, solutions for decarbonization.</li>
+                        <li><strong>Hyundai Heavy Industries (HHI) - Engine & Machinery Division (South Korea):</strong> Marine engines (licensed two-stroke, HiMSEN four-stroke), power generators, propulsion, deck machinery, pumps, eco-machinery (BWTS, scrubbers).</li>
+                        <li><strong>Mitsubishi Heavy Industries Marine Machinery & Equipment (MHI-MME) (Japan):</strong> Marine engines (UEC series), power generators, propulsion, deck machinery, boilers, turbochargers (MET series), environmental solutions.</li>
+                        <li><strong>Alfa Laval (Sweden):</strong> Pumps, waste treatment systems (PureBallast, PureSOx), fuel conditioning (separators), heat exchangers, boilers (Aalborg), air lubrication (OceanGlide).</li>
+                        <li><strong>MacGregor (Part of Cargotec, Finland):</strong> Deck machinery (cranes, hatch covers, RoRo equipment), mooring systems, intelligent cargo handling solutions (OnWatch Scout).</li>
+                        <li><strong>Furuno Electric Co., Ltd. (Japan):</strong> Navigation equipment (radar, ECDIS, GPS, sonar), communication equipment.</li>
+                        <li><strong>Japan Radio Co., Ltd. (JRC) (Japan):</strong> Navigation equipment, communication equipment (GMDSS, satellite).</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>Top 10 OEMs: In-Depth Focus & Innovations</h3>
+                    
+                    <div class="company-card">
+                        <h4>Wärtsilä Corporation</h4>
+                        <p><strong>Overview:</strong> Global leader in smart technologies and complete lifecycle solutions, driving sustainability and digitalization.</p>
+                        <ul>
+                            <li><strong>Marine Engines:</strong> Flagship Wärtsilä 31DF (Guinness World Record for efficiency), Wärtsilä 20, 26, 32, 46 series. Strong in dual-fuel (LNG, Methanol, Ammonia-ready) and future fuel R&D (H2). Focus on methane slip reduction.</li>
+                            <li><strong>Propulsion Systems:</strong> CPPs, FPPs, thrusters (WST series), waterjets, Wärtsilä Oceanguard seals. Energy-saving devices.</li>
+                            <li><strong>Automation & Control:</strong> Nacos Platinum (integrated navigation, automation, control), Wärtsilä Nacos Connect (remote oversight), DP systems.</li>
+                            <li><strong>Waste Treatment:</strong> Scrubbers (IQ Series), BWMS (Aquarius UV & EC), SCR, oily water separators.</li>
+                            <li><strong>Digital Solutions:</strong> Fleet Operations Solution (FOS), Expert Insight (predictive maintenance), Wärtsilä Voyage solutions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>MAN Energy Solutions</h4>
+                        <p><strong>Overview:</strong> Leading provider of large-bore engines and turbomachinery, dominant in two-stroke engines for large vessels.</p>
+                        <ul>
+                            <li><strong>Marine Engines (Two-Stroke):</strong> ME-C, ME-GI (Gas Injection), ME-GA (Otto-cycle Gas Admission), ME-LGIM (Methanol), ME-LGIA (Ammonia - under development). EGR for NOx.</li>
+                            <li><strong>Marine Engines (Four-Stroke):</strong> MAN 32/44CR, 48/60CR, 51/60DF, 175D. Common rail, dual-fuel capabilities.</li>
+                            <li><strong>Turbochargers:</strong> TCA and TCR series.</li>
+                            <li><strong>Propulsion Systems:</strong> MAN Alpha propellers, complete propulsion packages.</li>
+                            <li><strong>Digital Solutions:</strong> MAN CEON platform for data analytics and remote services (PrimeServ Assist).</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>Caterpillar Marine</h4>
+                        <p><strong>Overview:</strong> Major supplier of diesel/dual-fuel engines (Cat® & MaK™) and power systems, known for reliability.</p>
+                        <ul>
+                            <li><strong>Marine Engines (Cat®):</strong> C32, C280, 3500, 3600 series. ACERT™ Technology, dynamic gas blending.</li>
+                            <li><strong>Marine Engines (MaK™):</strong> M20, M25, M32, M43, M46DF. Long-stroke designs, robust dual-fuel tech.</li>
+                            <li><strong>Power Generators:</strong> Cat and MaK based gensets.</li>
+                            <li><strong>Propulsion Systems:</strong> Propellers, azimuth and transverse thrusters.</li>
+                            <li><strong>Digital Solutions:</strong> Cat® Connect & Cat Asset Intelligence for remote monitoring, analytics, and advisory.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="company-card">
+                        <h4>Cummins Inc.</h4>
+                        <p><strong>Overview:</strong> Global power leader known for reliable high-speed diesel engines and power generation.</p>
+                        <ul>
+                            <li><strong>Marine Engines:</strong> QSK series (QSK19 to QSK95 - high power), QSB, X15. C Command™ electronics, modular common rail fuel systems. IMO Tier III SCR solutions. Methanol-ready QSK60 (AiP received).</li>
+                            <li><strong>Power Generators:</strong> Onan brand marine generator sets.</li>
+                            <li><strong>Filtration:</strong> Fleetguard® brand filters.</li>
+                            <li><strong>New Power (Accelera by Cummins):</strong> Hydrogen engines (H2-ICE), fuel cells, battery solutions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>Kongsberg Maritime</h4>
+                        <p><strong>Overview:</strong> Technology leader in vessel operations, navigation, positioning, automation, and subsea systems.</p>
+                        <ul>
+                            <li><strong>Automation & Control:</strong> K-Chief (IAS), K-Pos (DP systems), advanced sensor tech.</li>
+                            <li><strong>Propulsion & Maneuvering:</strong> Azimuth thrusters (PM options), tunnel thrusters, CPPs, waterjets.</li>
+                            <li><strong>Navigation & Bridge:</strong> K-Bridge (IBS), radar, ECDIS, sonar. Solutions for remote & autonomous ops.</li>
+                            <li><strong>Deck Machinery:</strong> Specialized winches, LARS.</li>
+                            <li><strong>Digital Solutions:</strong> Vessel Insight (data infrastructure platform), K-Sim (simulation), HUGIN AUVs. Focus on autonomy and smart port solutions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>ABB Marine & Ports</h4>
+                        <p><strong>Overview:</strong> Specializes in electrification, automation, and digitalization, famed for Azipod® propulsion.</p>
+                        <ul>
+                            <li><strong>Electric Propulsion:</strong> Azipod® (CO, CZ, D, VI, XO), Azipod® Dynafin™.</li>
+                            <li><strong>Electrical Systems:</strong> Onboard DC Grid™, AC power distribution, shaft generators, shore connections, fuel cell integration.</li>
+                            <li><strong>Automation & Control:</strong> ABB Ability™ System 800xA (IAS), Marine Pilot Control, OCTOPUS (voyage optimization), PEMS™.</li>
+                            <li><strong>Digital Solutions:</strong> ABB Ability™ Collaborative Operations Centers, remote diagnostics, data analytics.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="company-card">
+                        <h4>Siemens Energy</h4>
+                        <p><strong>Overview:</strong> Broad energy technology provider with marine solutions for electrification, automation, and propulsion.</p>
+                        <ul>
+                            <li><strong>Propulsion Systems:</strong> SISHIP SiPOD & eSiPOD (electric podded), BlueDrive PlusC (DC power/propulsion). Focus on diesel-electric, hybrid, battery, and fuel cell integration.</li>
+                            <li><strong>Power Generation:</strong> Marine gas turbines, steam turbines, generators.</li>
+                            <li><strong>Automation & Control:</strong> SISHIP IMAC (IAS), SISHIP EcoMAIN (decision support).</li>
+                            <li><strong>Decarbonization Solutions:</strong> Systems for hybrid power, fuel cells (PEM), ammonia cracking for H2, support for alternative fuels.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>Alfa Laval</h4>
+                        <p><strong>Overview:</strong> Leader in heat transfer, separation, and fluid handling technologies critical for marine applications.</p>
+                        <ul>
+                            <li><strong>Fuel Treatment:</strong> Centrifugal separators (S-series), Fuel Conditioning Modules (FCMs for LNG, Methanol, Ammonia). FlowSync.</li>
+                            <li><strong>Ballast Water Treatment:</strong> PureBallast 3 (UV & Electro-chlorination).</li>
+                            <li><strong>Exhaust Gas Cleaning:</strong> PureSOx scrubbers.</li>
+                            <li><strong>Heat Exchangers & Freshwater:</strong> Plate heat exchangers, AQUA Blue freshwater generators.</li>
+                            <li><strong>Energy Saving:</strong> OceanGlide air lubrication system. Aalborg boilers.</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>MacGregor (Part of Cargotec)</h4>
+                        <p><strong>Overview:</strong> Global leader in marine cargo and load handling solutions.</p>
+                        <ul>
+                            <li><strong>Cargo Handling:</strong> Hatch covers (Foldtite, Transfolding), RoRo equipment (ramps, car decks), container lashing.</li>
+                            <li><strong>Cranes & Lifting:</strong> Marine cranes (shipboard, offshore), AHC offshore cranes, FibreTrac (fibre-rope).</li>
+                            <li><strong>Mooring Systems:</strong> Winches, windlasses, automated mooring systems.</li>
+                            <li><strong>Digital Solutions:</strong> OnWatch Scout (intelligent monitoring & diagnostics for equipment).</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card">
+                        <h4>HD Hyundai (Engine & Machinery Division / Marine Solution)</h4>
+                        <p><strong>Overview:</strong> Major engine builder (licensed & proprietary HiMSEN) and provider of integrated marine solutions.</p>
+                        <ul>
+                            <li><strong>Engines:</strong> Licensed MAN ES & Wärtsilä low-speed engines. HiMSEN medium-speed engines (H17, H21, H25, H32 - diesel, dual-fuel for LNG, Methanol, Ammonia). Hi-SCR for NOx.</li>
+                            <li><strong>Propulsion:</strong> Propellers (Hi-FIN), shaft systems.</li>
+                            <li><strong>Eco-Machinery:</strong> EcoBallast (BWTS), Eco-Scrubber, Hi-GAS (Hyundai Gas Treatment System).</li>
+                            <li><strong>Digital & Automation:</strong> HiCONiS (IAS), ACONIS-DS (ICMS), HiEPS (electric propulsion), intelligent vessel solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="class-societies" class="light-section">
+            <div class="section-content">
+                <h2>Global Classification Societies</h2>
+                <p>Classification Societies are non-governmental organizations crucial for establishing and maintaining technical standards for ship construction and operation, ensuring safety and environmental protection.</p>
+                
+                <div class="company-card">
+                    <h4>DNV</h4>
+                    <p><strong>Core Services:</strong> Classification, certification, technical assurance, advisory (maritime, oil & gas, energy).</p>
+                    <p><strong>Specialized Offerings:</strong> Leading in alternative fuels (LNG, ammonia, methanol, hydrogen - "Gas Ready" notations, AFI platform), digital twin technology (DNV-RP-A204), Veracity data platform, maritime cyber security ("Cyber Secure" notations), decarbonization advisory.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Lloyd's Register (LR)</h4>
+                    <p><strong>Core Services:</strong> Classification, compliance, advisory services, focusing on safety, environment, asset performance.</p>
+                    <p><strong>Specialized Offerings:</strong> Maritime Decarbonisation Hub, digital classification (LR SafetyScanner, digital twins), LR OneOcean platform, expertise in alternative fuels (AiPs for ammonia/methanol vessels), advanced safety & risk management, LR Advisory Services for broad maritime stakeholders.</p>
+                </div>
+                <div class="company-card">
+                    <h4>American Bureau of Shipping (ABS)</h4>
+                    <p><strong>Core Services:</strong> Global classification, statutory certification, engineering review, survey and inspection.</p>
+                    <p><strong>Specialized Offerings:</strong> Strong in offshore (FPSOs, MODUs), gas carriers (LNG, LPG, LCO2, H2), ABS CyberSafety® program, sustainability & alternative fuels advisory (New Technology Qualification), ABS Wavesight™ (digital intelligence & fleet management).</p>
+                </div>
+                <div class="company-card">
+                    <h4>Bureau Veritas (BV)</h4>
+                    <p><strong>Core Services:</strong> Classification, certification, inspection, auditing for marine and offshore.</p>
+                    <p><strong>Specialized Offerings:</strong> Expertise in new energy carriers (ammonia, hydrogen) & bunkering, remote survey techniques (VeriSTAR AIM3D, My VeriSTAR), passenger ship & cruise liner specialization, smart ship notations ("Cyber Managed"), marine renewable energies certification.</p>
+                </div>
+                <div class="company-card">
+                    <h4>ClassNK (Nippon Kaiji Kyokai)</h4>
+                    <p><strong>Core Services:</strong> Ship classification, statutory surveys, plan approval, marine product certification.</p>
+                    <p><strong>Specialized Offerings:</strong> Strong R&D focus, ClassNK Transition Support Services (alternative fuels, zero-emission tech), ClassNK Alternative Fuel Insight, digital platforms (ClassNK ZETA for GHG, ClassNK CMAXS for CBM, ShipDC for data sharing), cyber security certification.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="service-providers" class="dark-section">
+            <div class="section-content">
+                <h2>Maritime Service Providers</h2>
+                <p>A diverse range of service providers supports the maritime industry, offering expertise in ship management, maintenance, digital solutions, consulting, and logistics.</p>
+
+                <div class="company-card">
+                    <h4>V.Group</h4>
+                    <p><strong>Core Services:</strong> Third-party ship management (technical, crew), marine support services.</p>
+                    <p><strong>Specialized Offerings:</strong> ShipSure® proprietary digital platform for integrated ship management, extensive global crewing network & training with focus on crew welfare, V.ShipsSUREquality operational excellence framework, SeaTec procurement & supply chain solutions.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Bernhard Schulte Shipmanagement (BSM)</h4>
+                    <p><strong>Core Services:</strong> Ship management (technical, crew), newbuilding supervision, maritime training.</p>
+                    <p><strong>Specialized Offerings:</strong> MariApps Marine Solutions (smartPAL digital suite with AI via OceanAI), advanced Maritime Training Centres with simulators, strong crew welfare programs, LNG expertise, Fleet Performance Centres for real-time optimization.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Kongsberg Digital (Maritime)</h4>
+                    <p><strong>Core Services:</strong> Software and digital solutions for maritime, oil & gas, renewables.</p>
+                    <p><strong>Specialized Offerings:</strong> Vessel Insight® (maritime data infrastructure & ecosystem), K-Sim® (advanced simulation for training & virtual prototyping), digital twin solutions, applications for decarbonization & efficiency, key enabler for autonomous shipping.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Veson Nautical</h4>
+                    <p><strong>Core Services:</strong> Commercial maritime software and data solutions.</p>
+                    <p><strong>Specialized Offerings:</strong> Veson IMOS Platform (VIP) for integrated chartering, operations, financials, trading & risk management. VIP Data Services & Analytics, VIP Trading & Risk Management modules. Cloud-based SaaS delivery and Veson Partner Network for integrations.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Drewry</h4>
+                    <p><strong>Core Services:</strong> Independent maritime research consultancy, market insights, advisory services.</p>
+                    <p><strong>Specialized Offerings:</strong> Respected research publications (World Container Index, Ship Operating Costs Review), maritime financial research & advisory (valuations, due diligence, IPO support), supply chain advisory & freight procurement support (Drewry Benchmarking Club), bespoke consulting.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Maersk Logistics & Services (A.P. Moller - Maersk)</h4>
+                    <p><strong>Core Services:</strong> Integrated end-to-end supply chain solutions, leveraging Maersk's global shipping network.</p>
+                    <p><strong>Specialized Offerings:</strong> Maersk.com digital platform for full logistics management, specialized Cold Chain Logistics, supply chain development & optimization advisory, Eco Delivery solutions (sustainable biofuels). Strong focus on smart port collaborations.</p>
+                </div>
+                <div class="company-card">
+                    <h4>ZeroNorth</h4>
+                    <p><strong>Core Services:</strong> Technology company optimizing shipping operations for profitability and CO2 reduction.</p>
+                    <p><strong>Specialized Offerings:</strong> AI-powered platform for voyage, vessel, & bunker optimization. Integrated decarbonization toolkit (CII management, EU ETS), proprietary algorithmic models, SaaS platform, focus on data integration & partnerships for holistic operational view.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="decarbonization" class="light-section">
+            <div class="section-content">
+                <h2>Decarbonization & Alternative Fuels – Strategic Bets</h2>
+                <p>The maritime industry's decarbonization drive is paramount, with OEMs and Classification Societies making significant investments in alternative fuels and related technologies to meet ambitious emissions reduction targets.</p>
+
+                <div class="subsection">
+                    <h4>Key Fuels & Technologies Under Development:</h4>
+                    <ul>
+                        <li><strong>Ammonia:</strong> Wärtsilä, MAN ES, HHI E&M (engines, fuel systems); Alfa Laval (fuel supply systems); Class Societies (rules, AiPs). Focus on engine development, safety, and bunkering solutions. Notable partnerships: Wärtsilä & MPA Singapore, MAN ES & COSCO, HHI & LR.</li>
+                        <li><strong>Methanol:</strong> Wärtsilä, MAN ES, Caterpillar, Cummins (engines, retrofits); Alfa Laval (fuel supply); Class Societies (rules, AiPs). Commercially more mature with a growing order book.</li>
+                        <li><strong>Hydrogen:</strong> Wärtsilä, MAN ES, Cummins (H2-ICE), ABB (fuel cells), Siemens Energy (fuel cells, ammonia cracking for H2); Class Societies (rules, guidelines). Focus on combustion engines and fuel cell applications, plus storage and handling.</li>
+                        <li><strong>LNG (Liquefied Natural Gas):</strong> Wärtsilä, MAN ES, HHI E&M (mature dual-fuel engines); Alfa Laval (fuel gas supply). Seen as a transitional fuel, with ongoing efforts to reduce methane slip.</li>
+                        <li><strong>Biofuels/Synthetic Fuels:</strong> Generally compatible with existing and new dual-fuel engines (Wärtsilä, MAN ES, Cummins). Considered drop-in or near drop-in solutions.</li>
+                        <li><strong>Electric/Battery Hybrid Systems:</strong> Wärtsilä, ABB, Siemens Energy, Cummins (Accelera), Caterpillar. Focus on energy storage, hybrid propulsion, and shore power for specific vessel types and operations.</li>
+                    </ul>
+                    <p><strong>Classification Societies' Role:</strong> DNV, LR, ABS, BV, and ClassNK are all actively developing rules, guidelines, and "Approval in Principle" (AiP) for vessels using these alternative fuels, focusing on safety, design, and operational procedures. They lead Joint Industry Projects (JIPs) to address challenges and facilitate adoption.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="efficiency" class="dark-section">
+            <div class="section-content">
+                <h2>Operational Efficiency & Supply Chain Optimization – Strategic Bets</h2>
+                <p>Alongside decarbonization, enhancing operational efficiency and optimizing supply chains through digitalization and innovative technologies are key strategic priorities for maritime corporates.</p>
+
+                <div class="subsection">
+                    <h4>Operational Efficiency Initiatives:</h4>
+                    <ul>
+                        <li><strong>Digital Solutions & Platforms:</strong>
+                            <ul>
+                                <li>OEMs: Wärtsilä (FOS, Expert Insight), MAN ES (MAN CEON), Caterpillar (Cat Connect), Cummins (PrevenTech®), Kongsberg (Vessel Insight, K-IMS), ABB (ABB Ability™), HD Hyundai (HiCONiS).</li>
+                                <li>Service Providers: V.Group (ShipSure®), BSM (smartPAL), Veson Nautical (IMOS), ZeroNorth Platform.</li>
+                                <li>Class Societies: DNV (Veracity), LR (LR OneOcean), ABS (ABS Wavesight™), ClassNK (ZETA, ShipDC).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Predictive Maintenance & Remote Monitoring:</strong> Core offerings from most major OEMs and ship managers, leveraging AI and real-time data.</li>
+                        <li><strong>Energy-Saving Devices (ESDs):</strong> Wärtsilä (hybrid modules), Alfa Laval (OceanGlide air lubrication), HD Hyundai (Shaft Generators).</li>
+                        <li><strong>Route & Voyage Optimization:</strong> Wärtsilä FOS, ABB OCTOPUS, Kongsberg applications, ZeroNorth, Veson IMOS.</li>
+                        <li><strong>Hull Performance Solutions:</strong> Integrated into various fleet performance platforms, often involving sensor data and analytics.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <h4>Supply Chain Optimization Initiatives:</h4>
+                    <ul>
+                        <li><strong>Digital Logistics Platforms:</strong> Maersk (Maersk.com), Veson Nautical (IMOS for commercial logistics).</li>
+                        <li><strong>Smart Ports Initiatives:</strong> Kongsberg, ABB (shore-to-ship power, automation), Maersk (collaborations). Class societies support with data standards and digital interface verification. MPA Singapore's Maritime Digital Twin is a key example.</li>
+                        <li><strong>Enhanced Inventory & Procurement Management:</strong> V.Group (SeaTec), BSM (smartPAL, BSM Catering).</li>
+                        <li><strong>Transparency & Visibility Tools:</strong> Offered by most digital platform providers, aiming for end-to-end supply chain insight.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="mna" class="light-section">
+            <div class="section-content">
+                <h2>M&A: Strategic Rationales & Directions</h2>
+                <p>Mergers and acquisitions in the maritime sector are driven by diverse strategic goals aimed at navigating industry transformations. Financial capacity is a key enabler, but the underlying rationales are multifaceted.</p>
+                <div class="subsection">
+                    <h4>Common Strategic Rationales for M&A:</h4>
+                    <ul>
+                        <li><strong>Consolidation:</strong> To increase market share, achieve economies of scale, and reduce competition.</li>
+                        <li><strong>Technology Acquisition & Innovation:</strong> Acquiring cutting-edge technologies (decarbonization, digitalization, autonomy), patents, or specialized R&D talent.</li>
+                        <li><strong>Market Expansion:</strong> Entering new geographical regions or customer segments.</li>
+                        <li><strong>Vertical Integration:</strong> Acquiring suppliers (backward) or service/distribution networks (forward) to control value chains.</li>
+                        <li><strong>Diversification:</strong> Expanding into new product lines or services to reduce dependency on cyclical markets.</li>
+                        <li><strong>Acquiring Service Capabilities:</strong> OEMs expanding into higher-margin aftermarket services.</li>
+                        <li><strong>Responding to Regulatory Changes:</strong> Acquiring solutions for environmental compliance or safety.</li>
+                        <li><strong>Access to Talent & Expertise:</strong> Bringing in specialized teams in areas like software, AI, or new fuel engineering.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <h4>Speculative M&A Directions for Selected Companies (Based on Trends):</h4>
+                    <p><em>Note: This is speculative and based on public information and industry trends.</em></p>
+                    <ul>
+                        <li><strong>Wärtsilä:</strong> Likely targets could include companies specializing in future fuel components (ammonia, methanol, H2), advanced AI for vessel optimization, carbon capture tech, or specialized digital service providers enhancing their lifecycle solutions.</li>
+                        <li><strong>MAN Energy Solutions:</strong> Potential interest in firms with expertise in new fuel engine components, CCUS technologies applicable to marine engines, or digital service companies that complement MAN CEON, particularly in predictive analytics for future fuels.</li>
+                        <li><strong>Kongsberg Maritime:</strong> Could target companies in advanced sensor technology for autonomous systems, subsea robotics, AI/ML for navigation, maritime cybersecurity, or niche software for specific maritime segments (e.g., offshore wind, aquaculture tech).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="trends" class="dark-section">
+            <div class="section-content">
+                <h2>Market Landscape & Future Outlook</h2>
+                <div class="subsection">
+                    <h4>Overarching Trends (as of May 2025):</h4>
+                    <ul>
+                        <li><strong>The Decarbonization Imperative:</strong> Dominant driver, pushing massive investment in alternative fuels (Ammonia, Methanol, LNG, Hydrogen, Biofuels) and emissions reduction technologies (CCS, ESDs).</li>
+                        <li><strong>Accelerated Digital Transformation:</strong> Pervasive adoption of IoT, AI, digital twins, and integrated platforms for operational efficiency, safety, and supply chain visibility.</li>
+                        <li><strong>Strategic Collaboration & Ecosystems:</strong> Increased JIPs, partnerships, and consortia to tackle complex challenges like new fuel infrastructure and data standardization.</li>
+                        <li><strong>Evolving Regulatory Landscape:</strong> IMO, EU (Fit for 55), and national regulations are key drivers for technological adoption and operational changes. Demand for global harmonization.</li>
+                        <li><strong>Focus on Lifecycle Value & ESG:</strong> Shift from transactional sales to holistic lifecycle solutions and services. Growing importance of verifiable ESG performance and reporting.</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <h4>Leading Companies in Innovation/Strategic Positioning (Examples):</h4>
+                    <ul>
+                        <li><strong>Decarbonization Tech (OEMs):</strong> Wärtsilä, MAN ES (multi-fuel engines); Alfa Laval (fuel handling, ESDs); HD Hyundai (HiMSEN future fuels).</li>
+                        <li><strong>Digitalization & Automation (OEMs):</strong> Kongsberg Maritime (Vessel Insight, autonomy); ABB Marine (Azipod®, ABB Ability™).</li>
+                        <li><strong>Digital Solutions & Optimization (Service Providers):</strong> Veson Nautical (IMOS), ZeroNorth (AI optimization), V.Group (ShipSure®), BSM (smartPAL).</li>
+                        <li><strong>Enabling Innovation (Class Societies):</strong> DNV (Veracity, alt-fuel rules), LR (Decarbonisation Hub, LR OneOcean), ABS (Wavesight™, gas carrier/offshore expertise), BV (new energy rules, remote survey), ClassNK (ZETA, R&D).</li>
+                    </ul>
+                </div>
+                <div class="subsection">
+                    <h4>Significant Gaps & Emerging Opportunities:</h4>
+                    <ul>
+                        <li><strong>New Fuel Infrastructure:</strong> Major gap in global production and bunkering for green ammonia, methanol, hydrogen. Huge opportunity for energy companies, ports.</li>
+                        <li><strong>Standardization & Interoperability:</strong> Lack of common standards for digital data formats and system integration hinders seamless data exchange.</li>
+                        <li><strong>Onboard Carbon Capture (CCS):</strong> Scalable and cost-effective onboard CCS is a significant emerging market.</li>
+                        <li><strong>Circular Economy & Sustainable End-of-Life:</strong> Sustainable ship recycling and management of new system components (batteries, fuel cells).</li>
+                        <li><strong>Advanced Workforce Training:</strong> Critical need for upskilling seafarers and shore staff for new fuels and digital systems.</li>
+                        <li><strong>Maritime Cybersecurity:</strong> Growing demand for robust, sector-specific cybersecurity solutions.</li>
+                        <li><strong>Green Financing:</strong> Opportunities for innovative financing for decarbonization projects.</li>
+                    </ul>
+                </div>
+                 <div class="subsection">
+                    <h4>Areas for Further Research:</h4>
+                    <ul>
+                        <li>Detailed financials and strategies of private maritime technology companies and start-ups.</li>
+                        <li>Geopolitical impacts on alternative fuel choices and supply chain development.</li>
+                        <li>Real-world, long-term ROI and performance data for newly adopted green technologies and digital solutions.</li>
+                        <li>The social impact of decarbonization and automation on the maritime workforce and the effectiveness of "just transition" strategies.</li>
+                        <li>Scalability and integration challenges for onboard carbon capture technologies.</li>
+                        <li>Systemic risks and interdependencies arising from the dual green and digital transitions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="mindmap" class="light-section">
+            <div class="section-content">
+                <h2>Visual Overview: Maritime Industry Mind Map</h2>
+                <div class="mindmap-diagram-container"> <div class="mindmap-node root-node">Maritime Industry Key Segments</div>
+                    <div class="mindmap-children"> <div class="mindmap-node">
+                            <strong>Original Equipment Manufacturers (OEMs)</strong>
+                            <div class="mindmap-children">
+                                <div class="mindmap-node">Wärtsilä
+                                    <ul><li>Multi-Fuel Engines (NH3, MeOH), Digital (FOS), Propulsion</li></ul>
+                                </div>
+                                <div class="mindmap-node">MAN Energy Solutions
+                                    <ul><li>Two-Stroke Future Fuels (ME-LGIM/A), MAN CEON</li></ul>
+                                </div>
+                                <div class="mindmap-node">Kongsberg Maritime
+                                    <ul><li>Vessel Insight, Autonomy (HUGIN), K-Sim</li></ul>
+                                </div>
+                                <div class="mindmap-node">ABB Marine & Ports
+                                    <ul><li>Azipod®, Onboard DC Grid™, ABB Ability™</li></ul>
+                                </div>
+                                <div class="mindmap-node">Alfa Laval
+                                    <ul><li>Fuel Handling (FCM), PureBallast, OceanGlide</li></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mindmap-node">
+                            <strong>Classification Societies</strong>
+                             <div class="mindmap-children">
+                                <div class="mindmap-node">DNV
+                                    <ul><li>Alt. Fuel Rules, Veracity, Digital Twins, Cyber Secure</li></ul>
+                                </div>
+                                <div class="mindmap-node">Lloyd's Register (LR)
+                                     <ul><li>Decarb Hub, LR OneOcean, Digital Class, New Fuel AiPs</li></ul>
+                                </div>
+                                <div class="mindmap-node">ABS
+                                    <ul><li>Offshore/Gas Expertise, CyberSafety®, Wavesight™</li></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mindmap-node">
+                            <strong>Maritime Service Providers</strong>
+                            <div class="mindmap-children">
+                                <div class="mindmap-node">V.Group
+                                    <ul><li>ShipSure® Platform, Global Crewing, SeaTec</li></ul>
+                                 </div>
+                                <div class="mindmap-node">BSM
+                                    <ul><li>smartPAL (MariApps), Fleet Performance Centres</li></ul>
+                                </div>
+                                <div class="mindmap-node">Maersk Logistics & Services
+                                    <ul><li>Integrated Logistics, Maersk.com, Cold Chain</li></ul>
+                                </div>
+                                <div class="mindmap-node">ZeroNorth
+                                    <ul><li>AI Voyage/Vessel/Bunker Optimization, CII Tools</li></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mindmap-node">
+                            <strong>Industry Synthesis & Outlook</strong>
+                            <div class="mindmap-children">
+                                <div class="mindmap-node">Key Decarbonization Bets
+                                    <ul><li>Ammonia & Methanol Frontrunners, H2 R&D, LNG Transition</li></ul>
+                                </div>
+                                <div class="mindmap-node">Operational Efficiency Drivers
+                                    <ul><li>Pervasive Digitalization (IoT/AI), Predictive Maintenance</li></ul>
+                                </div>
+                                <div class="mindmap-node">Overarching Market Trends
+                                    <ul><li>Collaboration, Regulatory Impact, ESG Focus</li></ul>
+                                </div>
+                                <div class="mindmap-node">Gaps & Opportunities
+                                    <ul><li>Fuel Infrastructure, Standardization, CCS, Workforce Training</li></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; May 2025 Maritime Industry Synthesis. Generated by Gemini.</p>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
