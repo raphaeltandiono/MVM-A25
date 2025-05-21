@@ -5,29 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MV2025 M&A Research</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --font-main: 'Inter', sans-serif;
+            --font-main: 'Gilroy', 'Inter', sans-serif; /* Gilroy with Inter as fallback */
+            --font-heading-serif: 'Adobe Arabic', 'Lora', serif; /* Adobe Arabic with Lora as fallback */
             
-            /* motion.vc inspired palette - updated accent */
-            --color-dark-bg: #0D1A1C; 
-            --color-light-bg: #F5F3EF; 
+            /* Newly specified color palette */
+            --color-dark-bg: #1E2A2B;       
+            --color-light-bg: #F5F1E9;      
             
-            --text-on-dark: #E0E0E0; 
+            --text-on-dark: #E8E8E8;        
             --text-on-dark-strong: #FFFFFF;
-            --text-on-light: #2B2B2B; 
-            --text-on-light-muted: #5F5F5F;
+            --text-on-light: #333333;       
+            --text-on-light-muted: #585858;
 
-            --accent-primary: #20A370; /* Darkened Green/Teal */
-            --accent-primary-hover: #1A8C5D; /* Darker hover for the new accent */
+            --accent-primary: #9DB5B2;      
+            --accent-primary-hover: #8AA6A3; 
 
-            --border-dark-theme: #334143;
-            --border-light-theme: #DCDCDC;
+            --border-dark-theme: #4A585A; /* Adjusted for new dark bg */
+            --border-light-theme: #E0DCD3; /* Adjusted for new light bg */
 
-            --card-bg-dark: #142528;
-            --card-border-dark: #2A3F42;
+            --card-bg-dark: #2A3A3D;  /* Adjusted for new dark bg */      
+            --card-border-dark: #4A585A; /* Adjusted for new dark bg */
             --card-bg-light: #FFFFFF;
-            --card-border-light: #EAEAEA;
+            --card-border-light: #E0DACE;
         }
 
         * {
@@ -52,60 +54,113 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2.5rem; 
-            max-width: 1400px;
+            padding: 0.8rem 2rem; 
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         nav .logo {
-            font-size: 1.6rem; 
+            font-size: 1.5rem; 
             font-weight: 700; 
+            font-family: var(--font-heading-serif); 
             color: var(--accent-primary);
         }
+        
+        .menu-toggle { /* Replaced .menu-button with .menu-toggle for burger */
+            display: flex; /* Changed to flex for small screens */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001; /* Ensure it's above nav links if they overlay */
+        }
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-on-dark-strong);
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        /* Burger animation */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px); /* Adjusted for better X alignment */
+        }
+
 
         nav ul {
             list-style: none;
-            display: flex;
+            display: none; 
+            flex-direction: column;
+            position: absolute;
+            top: calc(100% + 1px); 
+            left: 0;
+            right: 0; 
+            margin: 0 auto; 
+            max-width: 1300px; 
+            background-color: var(--color-dark-bg);
+            padding: 0.5rem 0; 
+            box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+            border-top: 1px solid var(--border-dark-theme);
+        }
+
+        nav ul.active {
+            display: flex; 
         }
 
         nav ul li {
-            margin-left: 1.8rem; 
+            margin: 0; 
+            width: 100%;
         }
 
         nav ul li a {
             color: var(--text-on-dark-strong);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
+            display: block; 
+            padding: 0.9rem 2rem; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: left; 
         }
 
         nav ul li a:hover {
-            color: var(--accent-primary);
-            transform: translateY(-1px);
+            background-color: var(--accent-primary);
+            color: var(--color-dark-bg); 
         }
+
 
         .hero {
             text-align: center;
-            padding: 3rem 1.5rem 3rem 1.5rem; 
+            padding: 2.5rem 1.5rem 2.5rem 1.5rem; 
             max-width: 900px;
             margin: 0 auto; 
             background-color: var(--color-dark-bg); 
         }
 
         .hero h1 {
-            font-size: 3rem; 
+            font-family: var(--font-heading-serif); 
+            font-size: 2.8rem; 
             margin-bottom: 0; 
-            font-weight: 800; 
+            font-weight: 700; 
             color: var(--text-on-dark-strong);
-            letter-spacing: -1.5px; 
+            letter-spacing: -0.5px; 
             line-height: 1.2;
         }
         .hero h1 .highlight { 
@@ -115,7 +170,7 @@
         main { }
 
         section {
-            padding: 4rem 2rem; 
+            padding: 3.5rem 2rem; 
         }
         
         .section-content {
@@ -124,13 +179,14 @@
         }
 
         section h2 {
-            font-size: 2.5rem; 
+            font-family: var(--font-heading-serif); 
+            font-size: 2.2rem; 
             margin-bottom: 2rem; 
             font-weight: 700;
             text-align: center;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             position: relative;
-            padding-bottom: 0.8rem; 
+            padding-bottom: 0.7rem; 
         }
         section h2::after {
             content: '';
@@ -138,8 +194,9 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 90px; 
+            width: 80px; 
             height: 3px; 
+            background-color: var(--accent-primary); 
         }
 
         .light-section {
@@ -148,9 +205,6 @@
         }
         .light-section h2 {
             color: var(--text-on-light);
-        }
-        .light-section h2::after {
-            background-color: var(--accent-primary); 
         }
         .light-section p, .light-section li {
             color: var(--text-on-light-muted);
@@ -166,11 +220,8 @@
         .dark-section h2 {
             color: var(--text-on-dark-strong);
         }
-        .dark-section h2::after {
-            background-color: var(--accent-primary);
-        }
         .dark-section p, .dark-section li {
-            color: #b0bec5; 
+            color: #CED4DA; 
         }
         .dark-section strong {
             color: var(--accent-primary);
@@ -182,22 +233,22 @@
             color: var(--accent-primary-hover);
         }
 
-        .subsection {
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-            padding: 2rem; 
-            border-radius: 12px; 
+        .subsection, .company-card { 
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.8rem; 
+            border-radius: 25px; 
         }
 
-        .light-section .subsection {
+        .light-section .subsection, .light-section .company-card {
             background-color: var(--card-bg-light);
             border: 1px solid var(--border-color-light);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            box-shadow: 0 6px 24px rgba(0,0,0,0.07); 
         }
-        .dark-section .subsection {
+        .dark-section .subsection, .dark-section .company-card {
              background-color: var(--card-bg-dark);
              border: 1px solid var(--card-border-dark);
-             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+             box-shadow: 0 6px 24px rgba(0,0,0,0.15);
         }
 
         section ul {
@@ -207,42 +258,44 @@
         }
 
         section ul li {
-            margin-bottom: 0.75rem; 
+            margin-bottom: 0.7rem; 
         }
         section ul li::marker {
             color: var(--accent-primary); 
-            font-size: 1.1em;
+            font-size: 1.05em;
         }
         .dark-section section ul li::marker {
             color: var(--accent-primary);
         }
 
         section ul ul {
-            margin-top: 0.6rem;
-            margin-left: 25px;
+            margin-top: 0.5rem;
+            margin-left: 20px;
         }
         section ul ul li::marker {
             content: '▹ '; 
             color: var(--text-on-light-muted);
         }
         .dark-section section ul ul li::marker {
-            color: #b0bec5;
+            color: #CED4DA;
         }
 
-        h3 {
-            font-size: 1.8rem; 
-            margin-bottom: 1.25rem; 
-            font-weight: 700; 
+        h3 { 
+            font-family: var(--font-main); 
+            font-size: 1.6rem; 
+            margin-bottom: 1rem; 
+            font-weight: 600; 
             color: var(--text-on-light);
         }
         .dark-section h3 {
             color: var(--text-on-dark-strong);
         }
 
-        h4 {
-            font-size: 1.5rem; 
-            margin-top: 1.8rem;
-            margin-bottom: 1.1rem; 
+        h4 { 
+            font-family: var(--font-main); 
+            font-size: 1.3rem; 
+            margin-top: 0; 
+            margin-bottom: 0.8rem; 
             color: var(--text-on-light);
             font-weight: 600;
         }
@@ -251,9 +304,10 @@
         }
         
         h5 {
-            font-size: 1.25rem; 
-            margin-top: 1.6rem;
-            margin-bottom: 0.9rem; 
+            font-family: var(--font-main); 
+            font-size: 1.1rem; 
+            margin-top: 1.2rem;
+            margin-bottom: 0.7rem; 
             color: var(--accent-primary);
             font-weight: 600;
         }
@@ -265,255 +319,61 @@
             font-weight: 600;
         }
 
-        .company-card {
-            border-radius: 12px; 
-            padding: 1.8rem; 
-            margin-bottom: 1.8rem; 
-        }
-        .light-section .company-card {
-            background-color: var(--card-bg-light);
-            border: 1px solid var(--border-color-light);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        .dark-section .company-card {
-            background-color: var(--card-bg-dark);
-            border: 1px solid var(--card-border-dark);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        .company-card h4 {
-            margin-top: 0;
-        }
-
-        /* Mind Map Diagram Styling */
-        .mindmap-diagram-container { /* Renamed for clarity */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; 
-            padding: 20px;
-            font-family: var(--font-main);
-            margin-top: 2rem;
-            border-radius: 12px;
-        }
-        .light-section .mindmap-diagram-container {
-            background-color: var(--card-bg-light);
-            border: 1px solid var(--border-color-light);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        .dark-section .mindmap-diagram-container {
-            background-color: var(--card-bg-dark);
-            border: 1px solid var(--card-border-dark);
-            color: var(--text-on-dark);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .mindmap-node {
-            background-color: var(--card-bg-light);
-            color: var(--text-on-light);
-            border: 1px solid var(--border-color-light);
-            padding: 8px 12px; /* Slightly smaller padding for nodes */
-            border-radius: 6px; /* Sharper radius for nodes */
-            margin-bottom: 8px; /* Tighter spacing */
-            position: relative;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            min-width: 180px; 
-            font-size: 0.95rem; /* Slightly smaller node text */
-        }
-        .dark-section .mindmap-node {
-            background-color: var(--card-bg-dark);
-            color: var(--text-on-dark);
-            border: 1px solid var(--card-border-dark);
-        }
-
-        .mindmap-node.root-node {
-            background-color: var(--accent-primary);
-            color: var(--color-dark-bg); 
-            font-weight: 700;
-            font-size: 1.2em; /* Adjusted root node size */
-            border: none;
-            text-align: center;
-            margin-left: 0; 
-            padding: 12px 18px; /* Larger padding for root */
-            width: auto; /* Allow it to size to content or be styled wider if needed */
-            display: inline-block; /* To center it if parent is text-align:center */
-            margin-bottom: 20px; /* Space below root */
-        }
-         .dark-section .mindmap-node.root-node {
-            color: var(--color-dark-bg); 
-         }
-
-        .mindmap-children {
-            margin-left: 30px; /* Indentation for children */
-            padding-left: 25px; /* Space for connecting line */
-            border-left: 2px solid var(--accent-primary);
-            position: relative;
-        }
-        
-        .mindmap-node:not(.root-node)::before { 
-            content: '';
-            position: absolute;
-            left: -26px; /* (padding-left of .mindmap-children) + (border-width / 2) */
-            top: 50%;
-            transform: translateY(-50%);
-            width: 25px; 
-            height: 2px;
-            background-color: var(--accent-primary);
-        }
-        /* Remove connector for direct children of root if root is centered and children flow below */
-        .mindmap-diagram-container > .mindmap-children > .mindmap-node::before {
-            display: none; 
-        }
-        .mindmap-diagram-container > .mindmap-children {
-            border-left: none; /* No vertical line for first level children if root is centered */
-            padding-left: 0;
-            margin-left: 0;
-            display: flex; /* Allow children to flow if needed, or stack */
-            flex-direction: column;
-            align-items: center; /* Center children under root */
-        }
-         /* Re-apply for deeper levels */
-        .mindmap-children .mindmap-children {
-            margin-left: 30px;
-            padding-left: 25px;
-            border-left: 2px solid var(--accent-primary);
-        }
-        .mindmap-children .mindmap-children .mindmap-node::before {
-             display: block; /* Ensure it shows for grandchildren */
-             left: -26px;
-             width: 25px;
-        }
-
-
-        .mindmap-node strong { 
-            font-weight: 600;
-            display: block;
-            margin-bottom: 3px; /* Tighter spacing */
-            font-size: 1em;
-        }
-        .light-section .mindmap-node strong {
-            color: var(--text-on-light);
-        }
-        .dark-section .mindmap-node strong {
-            color: var(--text-on-dark-strong);
-        }
-        .mindmap-node ul { /* For lists inside a node */
-            list-style-type: disc;
-            padding-left: 15px;
-            margin-top: 5px;
-            font-size: 0.9em;
-        }
-        .mindmap-node ul li {
-            margin-bottom: 3px;
-            padding-left: 0;
-        }
-        .mindmap-node ul li::marker {
-            font-size: 1em;
-        }
-         .mindmap-node ul li::before { /* Remove the large diagram bullet from list items inside a node */
-            display: none;
-        }
-
-
         footer {
             text-align: center;
             padding: 2rem; 
             background-color: var(--color-dark-bg);
-            color: #90a4ae; 
-            font-size: 0.9rem;
+            color: #A0AEC0; 
+            font-size: 0.85rem;
             margin-top: 3rem;
         }
 
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-around; 
-            width: 30px;
-            height: 24px; 
-            cursor: pointer;
-            z-index: 1001; 
-        }
-        .nav-toggle span {
-            height: 3px;
-            width: 100%;
-            background: var(--text-on-dark-strong);
-            border-radius: 10px;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
-        }
-        
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
         @media (max-width: 992px) { 
-            nav ul {
-                display: none;
-                flex-direction: column;
-                align-items: center; 
-                width: 100%;
-                background-color: var(--color-dark-bg); 
-                position: absolute;
-                top: 60px; 
-                left: 0;
-                padding: 1rem 0;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.3); 
-            }
-            nav ul.active {
-                display: flex;
-            }
-            nav ul li {
-                margin: 1rem 0; 
-            }
-            .nav-toggle {
+            .menu-toggle { /* Ensure burger is always flex for mobile */
                 display: flex;
             }
             .hero h1 {
-                font-size: 2.5rem;
-            }
-            section h2 {
                 font-size: 2.2rem;
             }
-             h3 {
-                font-size: 1.7rem;
-            }
-            h4 {
-                font-size: 1.4rem;
-            }
-        }
-         @media (max-width: 576px) {
-            nav .logo {
-                font-size: 1.4rem;
-            }
-            .hero h1 {
+            section h2 {
                 font-size: 2rem;
-            }
-            section {
-                padding: 3rem 1.25rem; 
-            }
-             section h2 {
-                font-size: 1.9rem;
             }
              h3 {
                 font-size: 1.5rem;
             }
             h4 {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
             }
-            .subsection, .company-card, .mindmap-diagram-container {
-                padding: 1.5rem;
+        }
+         @media (max-width: 576px) {
+            nav .logo {
+                font-size: 1.3rem;
             }
-            .mindmap-children .mindmap-children { /* Adjust for deeper mobile nesting */
-                 margin-left: 20px;
-                 padding-left: 15px;
+             nav {
+                padding: 0.8rem 1.5rem;
             }
-            .mindmap-children .mindmap-children .mindmap-node::before {
-                 left: -16px;
-                 width: 15px;
+            .hero h1 {
+                font-size: 1.8rem;
             }
+            section {
+                padding: 2.5rem 1rem; 
+            }
+             section h2 {
+                font-size: 1.7rem;
+            }
+             h3 {
+                font-size: 1.3rem;
+            }
+            h4 {
+                font-size: 1.1rem;
+            }
+            .subsection, .company-card {
+                padding: 1.2rem;
+                border-radius: 20px; 
+            }
+             nav ul {
+                top: calc(100% - 1px); 
+             }
          }
 
     </style>
@@ -522,11 +382,11 @@
     <header>
         <nav>
             <div class="logo">MV2025 M&A Research</div>
-            <div class="nav-toggle" id="navToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             <ul id="navLinks">
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#oems">OEMs</a></li>
@@ -536,12 +396,11 @@
                 <li><a href="#efficiency">Efficiency & SCM</a></li>
                 <li><a href="#mna">M&A Strategy</a></li>
                 <li><a href="#trends">Outlook</a></li>
-                <li><a href="#mindmap">Mind Map</a></li>
             </ul>
         </nav>
         <div class="hero">
             <h1>MV2025 M&A Research</h1>
-            </div>
+        </div>
     </header>
 
     <main>
@@ -903,103 +762,27 @@
                 </div>
             </div>
         </section>
-
-        <section id="mindmap" class="light-section">
-            <div class="section-content">
-                <h2>Visual Overview: Maritime Industry Mind Map</h2>
-                <div class="mindmap-diagram-container"> <div class="mindmap-node root-node">Maritime Industry Key Segments</div>
-                    <div class="mindmap-children"> <div class="mindmap-node">
-                            <strong>Original Equipment Manufacturers (OEMs)</strong>
-                            <div class="mindmap-children">
-                                <div class="mindmap-node">Wärtsilä
-                                    <ul><li>Multi-Fuel Engines (NH3, MeOH), Digital (FOS), Propulsion</li></ul>
-                                </div>
-                                <div class="mindmap-node">MAN Energy Solutions
-                                    <ul><li>Two-Stroke Future Fuels (ME-LGIM/A), MAN CEON</li></ul>
-                                </div>
-                                <div class="mindmap-node">Kongsberg Maritime
-                                    <ul><li>Vessel Insight, Autonomy (HUGIN), K-Sim</li></ul>
-                                </div>
-                                <div class="mindmap-node">ABB Marine & Ports
-                                    <ul><li>Azipod®, Onboard DC Grid™, ABB Ability™</li></ul>
-                                </div>
-                                <div class="mindmap-node">Alfa Laval
-                                    <ul><li>Fuel Handling (FCM), PureBallast, OceanGlide</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mindmap-node">
-                            <strong>Classification Societies</strong>
-                             <div class="mindmap-children">
-                                <div class="mindmap-node">DNV
-                                    <ul><li>Alt. Fuel Rules, Veracity, Digital Twins, Cyber Secure</li></ul>
-                                </div>
-                                <div class="mindmap-node">Lloyd's Register (LR)
-                                     <ul><li>Decarb Hub, LR OneOcean, Digital Class, New Fuel AiPs</li></ul>
-                                </div>
-                                <div class="mindmap-node">ABS
-                                    <ul><li>Offshore/Gas Expertise, CyberSafety®, Wavesight™</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mindmap-node">
-                            <strong>Maritime Service Providers</strong>
-                            <div class="mindmap-children">
-                                <div class="mindmap-node">V.Group
-                                    <ul><li>ShipSure® Platform, Global Crewing, SeaTec</li></ul>
-                                 </div>
-                                <div class="mindmap-node">BSM
-                                    <ul><li>smartPAL (MariApps), Fleet Performance Centres</li></ul>
-                                </div>
-                                <div class="mindmap-node">Maersk Logistics & Services
-                                    <ul><li>Integrated Logistics, Maersk.com, Cold Chain</li></ul>
-                                </div>
-                                <div class="mindmap-node">ZeroNorth
-                                    <ul><li>AI Voyage/Vessel/Bunker Optimization, CII Tools</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mindmap-node">
-                            <strong>Industry Synthesis & Outlook</strong>
-                            <div class="mindmap-children">
-                                <div class="mindmap-node">Key Decarbonization Bets
-                                    <ul><li>Ammonia & Methanol Frontrunners, H2 R&D, LNG Transition</li></ul>
-                                </div>
-                                <div class="mindmap-node">Operational Efficiency Drivers
-                                    <ul><li>Pervasive Digitalization (IoT/AI), Predictive Maintenance</li></ul>
-                                </div>
-                                <div class="mindmap-node">Overarching Market Trends
-                                    <ul><li>Collaboration, Regulatory Impact, ESG Focus</li></ul>
-                                </div>
-                                <div class="mindmap-node">Gaps & Opportunities
-                                    <ul><li>Fuel Infrastructure, Standardization, CCS, Workforce Training</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; May 2025 Maritime Industry Synthesis. for Motion Ventures</p>
+        <p>&copy; May 2025 Maritime Industry Synthesis. Generated by Gemini.</p>
     </footer>
 
     <script>
-        const navToggle = document.getElementById('navToggle');
+        const menuToggle = document.getElementById('menuToggle'); // Changed from menuButton
         const navLinks = document.getElementById('navLinks');
 
-        navToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            navToggle.classList.toggle('active');
+            menuToggle.classList.toggle('active'); // For animating the burger icon itself
         });
 
+        // Close menu when a link is clicked
         document.querySelectorAll('#navLinks a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
-                    navToggle.classList.remove('active');
+                    menuToggle.classList.remove('active'); // Also deactivate burger
                 }
             });
         });
