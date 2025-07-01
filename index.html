@@ -307,6 +307,8 @@
         }
         .dark-section h3 {
             color: var(--text-on-dark-strong);
+            text-align: center;
+            margin-top: 3rem;
         }
 
         h4 { 
@@ -347,6 +349,18 @@
             color: var(--color-dark-bg); /* Darker for light background */
             border-bottom: 1px solid var(--color-dark-bg);
         }
+        
+        /* M&A Focused Card Styles */
+        .company-card p.ma-focus {
+            margin-bottom: 0.5rem;
+        }
+         .company-card p.ma-focus strong {
+            color: var(--accent-primary);
+            font-weight: 600;
+            display: inline-block;
+            width: 100px; /* Aligns the text that follows */
+         }
+
 
         .company-card h5 { /* Reset top margin for H5 if it's the first element in a card */
              margin-top: 0;
@@ -472,9 +486,7 @@
             </button>
             <ul id="navLinks">
                 <li><a href="#overview">Overview</a></li>
-                <li><a href="#oems">OEMs</a></li>
-                <li><a href="#class-societies">Classification</a></li>
-                <li><a href="#service-providers">Service Providers</a></li>
+                <li><a href="#landscape">Key Players</a></li>
                 <li><a href="#decarbonization">Decarbonisation</a></li>
                 <li><a href="#efficiency">Efficiency & SCM</a></li>
                 <li><a href="#mna">M&A Strategy</a></li>
@@ -494,232 +506,143 @@
             </div>
         </section>
 
-        <section id="oems" class="dark-section">
+        <section id="landscape" class="dark-section">
             <div class="section-content">
-                <h2>Original Equipment Manufacturers (OEMs)</h2>
-                <p>OEMs are the bedrock of maritime technology, supplying the critical machinery and systems that power, propel, and equip global fleets. Their innovation is central to the industry's evolution, particularly in the current era of decarbonisation and digitalisation.</p>
+                <h2>The M&A Landscape: Key Players by Category</h2>
+                <p style="text-align:center; max-width: 800px; margin: -1rem auto 2rem auto;">This section outlines the primary actors in the maritime M&A ecosystem, segmented by their role. The focus is on their strategic acquisition appetite, typical targets, and key deals that signal their intent.</p>
 
-                <div class="subsection">
-                    <h3>Top 10 OEMs: In-Depth Focus, Innovations & Financials</h3>
-                    
-                    <div class="company-card">
-                        <h4>Wärtsilä Corporation</h4>
-                        <p><strong>Overview:</strong> Global leader in smart technologies and complete lifecycle solutions, driving sustainability and digitalisation.</p>
-                        <ul>
-                            <li><strong>Marine Engines:</strong> Flagship Wärtsilä 31DF, Wärtsilä 20, 26, 32, 46 series. Strong in dual-fuel (LNG, Methanol, Ammonia-ready) and future fuel R&D (H2).</li>
-                            <li><strong>Propulsion Systems:</strong> CPPs, FPPs, thrusters (WST series), waterjets, Wärtsilä Oceanguard seals. Energy-saving devices.</li>
-                            <li><strong>Digital Solutions:</strong> Fleet Operations Solution (FOS), Expert Insight (predictive maintenance), Wärtsilä Voyage solutions.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>FY2023 Net Sales:</strong> Approx. €6.0 billion.</p>
-                            <p><strong>Market Position:</strong> Leading global player in medium-speed marine engines, dual-fuel technologies, and integrated solutions. Significant market share in marine power and lifecycle services.</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>MAN Energy Solutions</h4>
-                        <p><strong>Overview:</strong> Leading provider of large-bore engines and turbomachinery, dominant in two-stroke engines for large vessels.</p>
-                        <ul>
-                            <li><strong>Marine Engines:</strong> Two-Stroke (ME-GI, ME-GA, ME-LGIM, ME-LGIA), Four-Stroke (MAN 32/44CR, 48/60CR, 51/60DF).</li>
-                            <li><strong>Digital Solutions:</strong> MAN CEON platform for data analytics and remote services (PrimeServ Assist).</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>FY2023 Revenue (as part of Volkswagen Group, then TRATON):</strong> Specific marine segment revenue often consolidated. TRATON Group (MAN, Scania, Navistar) reported significant revenues; MAN ES is a key part of its industrial engines business. (Note: MAN ES became independent from TRATON/VW in a spin-off/sale process that was evolving around 2023-2024, now part of Carlyle Group).</p>
-                            <p><strong>Market Position:</strong> One of the top two global leaders in low-speed two-stroke marine engines, holding a very significant market share. Strong in medium-speed engines and turbochargers.</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>Caterpillar Marine</h4>
-                        <p><strong>Overview:</strong> Major supplier of diesel/dual-fuel engines (Cat® & MaK™) and power systems, known for reliability.</p>
-                        <ul>
-                            <li><strong>Marine Engines:</strong> Cat® (C32, C280, 3500 series), MaK™ (M20, M25, M32, M43DF).</li>
-                            <li><strong>Digital Solutions:</strong> Cat® Connect & Cat Asset Intelligence for remote monitoring and analytics.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>Caterpillar Inc. Total Sales & Revenues (FY2023):</strong> $67.1 billion USD. (Marine is a segment within the Energy & Transportation division).</p>
-                            <p><strong>Market Position:</strong> Significant global player in high and medium-speed marine engines, particularly strong in workboats, offshore, and specific commercial vessel segments. MaK brand is prominent in cruise and ferry sectors.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="company-card">
-                        <h4>Cummins Inc.</h4>
-                        <p><strong>Overview:</strong> Global power leader known for reliable high-speed diesel engines and power generation.</p>
-                        <ul>
-                            <li><strong>Marine Engines:</strong> QSK series (QSK19 to QSK95), QSB, X15. Methanol-ready QSK60.</li>
-                            <li><strong>New Power (Accelera by Cummins):</strong> Hydrogen engines (H2-ICE), fuel cells, battery solutions.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>Cummins Inc. Total Net Sales (FY2023):</strong> $34.1 billion USD. (Marine is part of the Engine or Power Systems segments).</p>
-                            <p><strong>Market Position:</strong> Major global supplier of high-horsepower diesel engines for various marine applications, strong in commercial and recreational segments. Growing focus on new power solutions.</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>Kongsberg Maritime</h4>
-                        <p><strong>Overview:</strong> Technology leader in vessel operations, navigation, positioning, automation, and subsea systems.</p>
-                        <ul>
-                            <li><strong>Digital Solutions:</strong> Vessel Insight (data infrastructure), K-Sim (simulation), HUGIN AUVs.</li>
-                            <li><strong>Automation & Control:</strong> K-Chief (IAS), K-Pos (DP systems).</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>Kongsberg Gruppen ASA Revenues (FY2023):</strong> Approx. NOK 40.6 billion (approx. $3.8 billion USD). Kongsberg Maritime is a major business area.</p>
-                            <p><strong>Market Position:</strong> Global leader in dynamic positioning, automation systems, subsea sensors, and increasingly, autonomous vessel technology and digital platforms.</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>ABB Marine & Ports</h4>
-                        <p><strong>Overview:</strong> Specialises in electrification, automation, and digitalisation, famed for Azipod® propulsion.</p>
-                        <ul>
-                            <li><strong>Electric Propulsion:</strong> Azipod® (various models), Azipod® Dynafin™.</li>
-                            <li><strong>Electrical Systems:</strong> Onboard DC Grid™, ABB Ability™ platform.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>ABB Group Total Revenues (FY2023):</strong> $32.2 billion USD. (Marine & Ports is part of the Process Automation business area).</p>
-                            <p><strong>Market Position:</strong> Market leader in electric podded propulsion (Azipod®). Strong presence in electrical systems, automation, and digital solutions for specialised vessels like cruise ships, icebreakers, and ferries.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="company-card">
-                        <h4>Siemens Energy</h4>
-                        <p><strong>Overview:</strong> Broad energy technology provider with marine solutions for electrification, automation, and propulsion.</p>
-                        <ul>
-                            <li><strong>Propulsion Systems:</strong> SISHIP SiPOD & eSiPOD, BlueDrive PlusC.</li>
-                            <li><strong>Decarbonisation Solutions:</strong> Hybrid power, fuel cells (PEM), ammonia cracking for H2.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>Siemens Energy AG Total Revenue (FY2023):</strong> Approx. €31.1 billion. (Marine solutions are part of its broader industrial applications).</p>
-                            <p><strong>Market Position:</strong> Significant player in marine electrical systems, hybrid propulsion, and increasingly, solutions for integrating new energy carriers like hydrogen and ammonia (often via fuel cells).</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>Alfa Laval</h4>
-                        <p><strong>Overview:</strong> Leader in heat transfer, separation, and fluid handling technologies critical for marine applications.</p>
-                        <ul>
-                            <li><strong>Fuel Treatment & Environmental:</strong> PureBallast 3, PureSOx, FCMs (LNG, Methanol, Ammonia).</li>
-                            <li><strong>Energy Saving:</strong> OceanGlide air lubrication system.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>Alfa Laval Group Net Sales (FY2023):</strong> Approx. SEK 63.6 billion (approx. $6.0 billion USD).</p>
-                            <p><strong>Market Position:</strong> Leading global supplier of critical marine equipment like separators, heat exchangers, ballast water treatment systems, and scrubbers. Strong aftermarket presence.</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>MacGregor (Part of Cargotec until planned divestment)</h4>
-                        <p><strong>Overview:</strong> Global leader in marine cargo and load handling solutions.</p>
-                        <ul>
-                            <li><strong>Cargo Handling:</strong> Hatch covers, RoRo equipment, container lashing.</li>
-                            <li><strong>Digital Solutions:</strong> OnWatch Scout (intelligent monitoring).</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>Cargotec Group Sales (FY2023):</strong> Approx. €4.0 billion. MacGregor is a significant business area (Note: Cargotec announced sale of MacGregor to Triton Partners, expected to close by H1 2025).</p>
-                            <p><strong>Market Position:</strong> Leading global provider of cargo access and handling systems for merchant ships and offshore vessels.</p>
-                        </div>
-                    </div>
-
-                    <div class="company-card">
-                        <h4>HD Hyundai (Engine & Machinery Division / Marine Solution)</h4>
-                        <p><strong>Overview:</strong> Major engine builder (licensed & proprietary HiMSEN) and provider of integrated marine solutions.</p>
-                        <ul>
-                            <li><strong>Engines:</strong> Licensed MAN ES & Wärtsilä low-speed engines. HiMSEN medium-speed engines (dual-fuel for LNG, Methanol, Ammonia).</li>
-                            <li><strong>Eco-Machinery:</strong> EcoBallast (BWTS), Eco-Scrubber.</li>
-                        </ul>
-                        <div class="company-financials">
-                            <p><strong>HD Hyundai Group (parent company) Revenue:</strong> Very large, diversified industrial conglomerate. HD Hyundai Heavy Industries (shipbuilding) and HD Hyundai Marine Solution report significant revenues. (Specific consolidated figures for just the Engine & Machinery/Marine Solution part can vary in reporting).</p>
-                            <p><strong>Market Position:</strong> One of the world's largest builders of marine engines (especially low-speed under licence). Strong global presence with its HiMSEN engines and growing portfolio of environmental and digital solutions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="class-societies" class="light-section">
-            <div class="section-content">
-                <h2>Global Classification Societies</h2>
-                <p>Classification Societies are non-governmental organisations crucial for establishing and maintaining technical standards for ship construction and operation, ensuring safety and environmental protection.</p>
-                
+                <h3>Major Shipping Lines & Port Operators</h3>
                 <div class="company-card">
-                    <h4>DNV</h4>
-                    <p><strong>Core Services:</strong> Classification, certification, technical assurance, advisory (maritime, oil & gas, energy).</p>
-                    <p><strong>Geographical Reach/Relevance:</strong> Global operations with a strong presence in Europe (Norway/Germany heritage), Asia, and the Americas. Highly influential in setting standards for new technologies and offshore. Covers a significant portion of the world's classed fleet.</p>
-                    <p><strong>Specialised Offerings:</strong> Leading in alternative fuels (LNG, ammonia, methanol, hydrogen - "Gas Ready" notations, AFI platform), digital twin technology (DNV-RP-A204), Veracity data platform, maritime cyber security ("Cyber Secure" notations), decarbonisation advisory.</p>
+                    <h4>A.P. Moller - Maersk</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Strategic Acquirer / Ecosystem Builder.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Aggressively acquiring land-based logistics, e-commerce fulfillment, and customs services to execute its strategic pivot to be an integrated global logistics provider.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> LF Logistics ($3.6B, 2022), Visible SCM ($838M, 2021), KGH Customs Services ($281M, 2020).</p>
                 </div>
+                <div class="company-card">
+                    <h4>PSA International</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Strategic Acquirer (Port Operator).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Expanding beyond its core port operations into global logistics to capture more of the supply chain value.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> BDP International (2022).</p>
+                </div>
+
+                <h3>Original Equipment Manufacturers (OEMs)</h3>
+                <div class="company-card">
+                    <h4>Wärtsilä Corporation</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Technology Acquirer.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Acquiring intellectual property in vessel performance analytics, energy management, and future fuel tech to lead in smart marine solutions.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Greensmith Energy (2017), Eniram (2016).</p>
+                </div>
+                <div class="company-card">
+                    <h4>MAN Energy Solutions</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Strategic Player / Private Equity-Owned.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> As a major engine maker owned by The Carlyle Group, its focus is on growth in future fuels and digital services to maximize value for an eventual exit.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> The acquisition by Carlyle Group from TRATON/VW is the defining recent transaction.</p>
+                </div>
+                 <div class="company-card">
+                    <h4>Kongsberg Maritime</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Technology Acquirer (Autonomy & Digital).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Securing a market-leading position in autonomous underwater systems and expanding its Vessel Insight digital platform.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Hydroid, Inc. ($350M, 2020).</p>
+                </div>
+                <div class="company-card">
+                    <h4>Alfa Laval</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Strategic Acquirer (Efficiency & Digital).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Adding established SaaS platforms to complement its hardware portfolio and provide data-driven efficiency solutions.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> StormGeo (approx. $390M-$440M, 2021).</p>
+                </div>
+                 <div class="company-card">
+                    <h4>Cummins Inc.</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Technology Acquirer (Future Fuels).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Investing in foundational technologies for the energy transition, particularly hydrogen fuel cells, via its Accelera brand.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Acquired a majority stake in Hydrogenics Corporation (2019).</p>
+                </div>
+                <div class="company-card">
+                    <h4>MacGregor</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Carve-out / Divestment.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Historically a consolidator in cargo handling, its primary story is its announced sale from Cargotec to Triton Partners.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Planned sale to Triton Partners (H1 2025); acquisition of TTS Group's marine businesses (2019).</p>
+                </div>
+                <div class="company-card">
+                    <h4>ABB Marine & Ports</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Technology Acquirer / Leader.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Bolstering its leadership in electrification and automation by acquiring complementary technologies, such as advanced simulation for digital twins.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Acquisition of CORYS (Announced 2023) for training simulators and digital twin technology.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Caterpillar Marine</h4>
+                     <p class="ma-focus"><strong>Role:</strong> Diversified Industrial Player.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> M&A is typically at the corporate level. Within marine, the focus is on organic growth centered on reliable engines (Cat® & MaK™) and expanding digital services like Cat® Connect for remote monitoring.</p>
+                </div>
+                 <div class="company-card">
+                    <h4>Siemens Energy</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Energy Technology Provider.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Broad M&A strategy focused on the energy transition. In marine, this translates to integrating solutions for electrification (SISHIP), hybrid power, and new energy carriers like hydrogen and ammonia via fuel cells.</p>
+                </div>
+                 <div class="company-card">
+                    <h4>HD Hyundai (E&M / Marine Solution)</h4>
+                     <p class="ma-focus"><strong>Role:</strong> Integrated Manufacturer / In-house Developer.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Primarily focused on organic growth by leveraging its scale. Develops proprietary solutions like the HiMSEN engines and its own suite of eco-machinery (EcoBallast, Eco-Scrubber) and digital platforms (HiCONiS).</p>
+                </div>
+
+
+                <h3>Global Classification Societies</h3>
                 <div class="company-card">
                     <h4>Lloyd's Register (LR)</h4>
-                    <p><strong>Core Services:</strong> Classification, compliance, advisory services, focusing on safety, environment, asset performance.</p>
-                    <p><strong>Geographical Reach/Relevance:</strong> Global network with historic strength in the UK, Commonwealth countries, and major shipping hubs worldwide. Strong in diverse ship types and a leader in safety and risk advisory.</p>
-                    <p><strong>Specialised Offerings:</strong> Maritime Decarbonisation Hub, digital classification (LR SafetyScanner, digital twins), LR OneOcean platform, expertise in alternative fuels (AiPs for ammonia/methanol vessels), advanced safety & risk management, LR Advisory Services for broad maritime stakeholders.</p>
+                    <p class="ma-focus"><strong>Role:</strong> Capability Acquirer (Digital Navigation).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Buying established digital platforms and experienced teams to accelerate its transformation into a digital services leader, as seen with its LR OneOcean platform.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Global Navigation Solutions (GNS) (2022).</p>
                 </div>
                 <div class="company-card">
                     <h4>American Bureau of Shipping (ABS)</h4>
-                    <p><strong>Core Services:</strong> Global classification, statutory certification, engineering review, survey and inspection.</p>
-                    <p><strong>Geographical Reach/Relevance:</strong> Strong global presence, particularly influential in the Americas and Asia. A leader in classification for offshore structures, gas carriers, and US-flagged vessels.</p>
-                    <p><strong>Specialised Offerings:</strong> Strong in offshore (FPSOs, MODUs), gas carriers (LNG, LPG, LCO2, H2), ABS CyberSafety® programme, sustainability & alternative fuels advisory (New Technology Qualification), ABS Wavesight™ (digital intelligence & fleet management).</p>
-                </div>
-                <div class="company-card">
-                    <h4>Bureau Veritas (BV)</h4>
-                    <p><strong>Core Services:</strong> Classification, certification, inspection, auditing for marine and offshore.</p>
-                    <p><strong>Geographical Reach/Relevance:</strong> Extensive global network with strong roots in Europe (France) and significant operations across Asia, the Americas, and Africa. Broad industry coverage beyond maritime.</p>
-                    <p><strong>Specialised Offerings:</strong> Expertise in new energy carriers (ammonia, hydrogen) & bunkering, remote survey techniques (VeriSTAR AIM3D, My VeriSTAR), passenger ship & cruise liner specialisation, smart ship notations ("Cyber Managed"), marine renewable energies certification.</p>
+                    <p class="ma-focus"><strong>Role:</strong> Capability Acquirer (Cybersecurity & Digital).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Acquiring specialized expertise in high-demand areas like maritime cybersecurity to enhance its advisory and digital service portfolio (ABS Wavesight™).</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Preventia (2021).</p>
                 </div>
                 <div class="company-card">
                     <h4>ClassNK (Nippon Kaiji Kyokai)</h4>
-                    <p><strong>Core Services:</strong> Ship classification, statutory surveys, plan approval, marine product certification.</p>
-                    <p><strong>Geographical Reach/Relevance:</strong> Headquartered in Japan with a major global network, particularly strong in Asia. A leading society for bulk carriers and Japanese-built/owned tonnage, with expanding global influence.</p>
-                    <p><strong>Specialised Offerings:</strong> Strong R&D focus, ClassNK Transition Support Services (alternative fuels, zero-emission tech), ClassNK Alternative Fuel Insight, digital platforms (ClassNK ZETA for GHG, ClassNK CMAXS for CBM, ShipDC for data sharing), cyber security certification.</p>
+                     <p class="ma-focus"><strong>Role:</strong> Strategic Investor.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Taking strategic stakes in leading software companies to secure access to critical design and operational performance technology.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Majority stake acquisition of NAPA (2014), a leader in ship design and stability software.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="service-providers" class="dark-section">
-            <div class="section-content">
-                <h2>Maritime Service Providers</h2>
-                <p>A diverse range of service providers supports the maritime industry, offering expertise in ship management, maintenance, digital solutions, consulting, and logistics.</p>
-
-                <div class="company-card">
-                    <h4>V.Group</h4>
-                    <p><strong>Core Services:</strong> Third-party ship management (technical, crew), marine support services.</p>
-                    <p><strong>Revenue/Market Share:</strong> As a private company, specific revenue is not always public. However, V.Group is consistently ranked as one of the world's largest (often the largest) third-party ship managers by number of vessels managed (typically <span class="statistic">over 600-700 vessels</span> under full technical management and a much larger pool for crewing).</p>
-                    <p><strong>Specialised Offerings:</strong> ShipSure® proprietary digital platform for integrated ship management, extensive global crewing network & training with focus on crew welfare, V.ShipsSUREquality operational excellence framework, SeaTec procurement & supply chain solutions.</p>
+                 <div class="company-card">
+                    <h4>DNV</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Ecosystem Builder / Investor.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Uses its venture arm (DNV Ventures) to invest in promising startups. Focus is on building its Veracity data platform ecosystem and acquiring niche consultancies or tech firms that support its advisory work in decarbonisation and digital twins.</p>
                 </div>
-                <div class="company-card">
-                    <h4>Bernhard Schulte Shipmanagement (BSM)</h4>
-                    <p><strong>Core Services:</strong> Ship management (technical, crew), newbuilding supervision, maritime training.</p>
-                    <p><strong>Revenue/Market Share:</strong> Private company. Consistently among the top 5 global third-party ship managers, managing a diverse fleet of <span class="statistic">several hundred vessels</span>.</p>
-                    <p><strong>Specialised Offerings:</strong> MariApps Marine Solutions (smartPAL digital suite with AI via OceanAI), advanced Maritime Training Centres with simulators, strong crew welfare programmes, LNG expertise, Fleet Performance Centres for real-time optimisation.</p>
+                 <div class="company-card">
+                    <h4>Bureau Veritas (BV)</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Technology Adopter.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Less focused on large-scale M&A and more on developing services around new technology internally, such as remote survey techniques (VeriSTAR) and establishing "Cyber Managed" smart ship notations.</p>
                 </div>
-                <div class="company-card">
-                    <h4>Kongsberg Digital (Maritime)</h4>
-                    <p><strong>Core Services:</strong> Software and digital solutions for maritime, oil & gas, renewables.</p>
-                    <p><strong>Revenue/Market Share:</strong> Part of Kongsberg Gruppen. Kongsberg Digital reported revenues of approx. <span class="statistic">NOK 1.6 billion in 2023</span> (across all its sectors). Its Vessel Insight platform is gaining significant traction with hundreds of vessels connected, aiming for a leading position in maritime data infrastructure.</p>
-                    <p><strong>Specialised Offerings:</strong> Vessel Insight® (maritime data infrastructure & ecosystem), K-Sim® (advanced simulation for training & virtual prototyping), digital twin solutions, applications for decarbonisation & efficiency, key enabler for autonomous shipping.</p>
-                </div>
+                
+                <h3>Maritime Service & Technology Providers</h3>
                 <div class="company-card">
                     <h4>Veson Nautical</h4>
-                    <p><strong>Core Services:</strong> Commercial maritime software and data solutions.</p>
-                    <p><strong>Revenue/Market Share:</strong> Private company. Veson's IMOS platform is a leading commercial maritime software, used by a significant portion of the world's shipping companies for chartering and operations (estimated to manage <span class="statistic">over 50% of global wet and dry bulk voyages</span> by some industry sources).</p>
-                    <p><strong>Specialised Offerings:</strong> Veson IMOS Platform (VIP) for integrated chartering, operations, financials, trading & risk management. VIP Data Services & Analytics, VIP Trading & Risk Management modules. Cloud-based SaaS delivery and Veson Partner Network for integrations.</p>
-                </div>
-                <div class="company-card">
-                    <h4>Drewry</h4>
-                    <p><strong>Core Services:</strong> Independent maritime research consultancy, market insights, advisory services.</p>
-                    <p><strong>Revenue/Market Share:</strong> Private consultancy. Highly respected and widely cited for its market analysis and forecasts, holding a strong qualitative market share in maritime research and advisory.</p>
-                    <p><strong>Specialised Offerings:</strong> Respected research publications (World Container Index, Ship Operating Costs Review), maritime financial research & advisory (valuations, due diligence, IPO support), supply chain advisory & freight procurement support (Drewry Benchmarking Club), bespoke consulting.</p>
-                </div>
-                <div class="company-card">
-                    <h4>Maersk Logistics & Services (A.P. Moller - Maersk)</h4>
-                    <p><strong>Core Services:</strong> Integrated end-to-end supply chain solutions, leveraging Maersk's global shipping network.</p>
-                    <p><strong>Revenue/Market Share:</strong> A.P. Moller - Maersk Group revenue was <span class="statistic">$51.1 billion USD in 2023</span>. The Logistics & Services segment reported revenue of <span class="statistic">approx. $13.9 billion USD in 2023</span>. Maersk is one of the largest container shipping lines globally and rapidly expanding its integrated logistics footprint.</p>
-                    <p><strong>Specialised Offerings:</strong> Maersk.com digital platform for full logistics management, specialised Cold Chain Logistics, supply chain development & optimisation advisory, Eco Delivery solutions (sustainable biofuels). Strong focus on smart port collaborations.</p>
+                    <p class="ma-focus"><strong>Role:</strong> Platform Consolidator.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Acquiring smaller software providers to consolidate the fragmented commercial maritime software market and create a comprehensive, integrated platform (IMOS).</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> Q88 (2022).</p>
                 </div>
                 <div class="company-card">
                     <h4>ZeroNorth</h4>
-                    <p><strong>Core Services:</strong> Technology company optimising shipping operations for profitability and CO2 reduction.</p>
-                    <p><strong>Revenue/Market Share:</strong> Private, rapidly growing scale-up. Has a significant and increasing number of vessels using its platform (reported <span class="statistic">over 4,000 vessels</span> in early 2024). A key player in the voyage optimisation and decarbonisation software segment.</p>
-                    <p><strong>Specialised Offerings:</strong> AI-powered platform for voyage, vessel, & bunker optimisation. Integrated decarbonisation toolkit (CII management, EU ETS), proprietary algorithmic models, SaaS platform, focus on data integration & partnerships for holistic operational view.</p>
+                    <p class="ma-focus"><strong>Role:</strong> Platform Consolidator.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Acquiring complementary software tools to build out its AI-powered platform for voyage, vessel, and bunker optimisation.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> BTS (Prosmar Bunkering) (2022).</p>
+                </div>
+                 <div class="company-card">
+                    <h4>V.Group / OSM & Thome (Market Trend)</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Market Consolidators (Ship Management).</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> The merger of major ship managers like OSM Maritime and Thome Group points to a trend of consolidation to achieve greater scale, enhance service offerings, and increase investment capacity for digital and sustainable solutions.</p>
+                    <p class="ma-focus"><strong>Key Deals:</strong> OSM Maritime Group merging with Thome Group (Announced 2023).</p>
+                </div>
+                 <div class="company-card">
+                    <h4>Bernhard Schulte Shipmanagement (BSM)</h4>
+                     <p class="ma-focus"><strong>Role:</strong> In-house Technology Developer.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Represents a 'build' over 'buy' strategy. BSM invests heavily in its own technology subsidiary, MariApps Marine Solutions, to develop its proprietary smartPAL digital suite, rather than acquiring external tech firms.</p>
+                </div>
+                <div class="company-card">
+                    <h4>Drewry</h4>
+                    <p class="ma-focus"><strong>Role:</strong> Independent M&A Advisor.</p>
+                    <p class="ma-focus"><strong>M&A Focus:</strong> Does not acquire companies, but plays a critical role in the M&A ecosystem by providing market research, valuations, due diligence, and IPO support services to other players.</p>
                 </div>
             </div>
         </section>
@@ -1052,7 +975,7 @@
     </main>
 
     <footer>
-        <p>&copy; May 2025 Maritime Industry Synthesis. Generated by Gemini.</p>
+        <p>&copy; July 2025 Maritime Industry Synthesis.</p>
     </footer>
 
     <script>
